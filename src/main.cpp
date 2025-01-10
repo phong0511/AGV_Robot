@@ -3,6 +3,8 @@
 #include "motorControl.h"
 
 int n = 20;
+int v2 = 0;
+int v4 = 0;
 
 void setup() {
   // put your setup code here, to run once:
@@ -50,24 +52,23 @@ void loop() {
   Serial.println("Encoder 4 value: " + String(encoder4_value) + "\tSo vong quay: " + String(encoder4_value/333) + "\tGoc quay: " + String(((encoder4_value % 333) * 360 ) / 333) );
   Serial.println(n);
   Serial.println("---------------------");
-  /* if (n % 43== 0){
-    Motor1_Break();
-    Motor2_Break();
-    Motor3_Break();
-    Motor4_Break();
-  } */
-  if (n % 38 == 0){
-    Motor1_Break();
-    Motor2_Break();
-  }
-  else if (n % 21 == 0 ) {
-    Motor1_Forward(700);
-    Motor2_Forward(700);
-    Motor3_Forward(700);
-    Motor4_Forward(700);
-  }
-  n++;
 
+  v2 = abs(encoder2_value / 333);
+  v4 = abs(encoder4_value / 333);
+
+  if (v4 > 0 && v4 < 20){
+    Car_Forward(700);
+  }
+  else if (v4 < 24) {
+    Car_Left(0);
+  }
+  else if (v4 < 40){
+    Car_Forward(700);
+  }
+  else if (v2 < 40){
+    Car_Right(0);
+  }
+  else Car_Forward(700);
   delay(200);
 
 }

@@ -36,4 +36,10 @@ void Motor4_Forward(int Speed);
 void Motor4_Backward(int Speed);
 void Motor4_Break();
 
+void Car_Left(int angle);
+void Car_Right(int angle);
+
+void Car_Forward(int speed);
+void Car_Backward(int speed);
+
 #endif

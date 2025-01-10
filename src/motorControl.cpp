@@ -67,3 +67,43 @@ void Motor4_Break(){
   digitalWrite(IN4A, LOW);
   digitalWrite(IN4B, LOW);
 }
+
+void Car_Left(int angle){
+  Motor1_Backward(900);
+  Motor2_Backward(900);
+  Motor3_Forward(900);
+  Motor4_Forward(900);
+/*   angle *= 1000;
+  while (angle--);
+  Motor1_Break();
+  Motor2_Break();
+  Motor3_Break();
+  Motor4_Break(); */
+}
+
+void Car_Right(int angle){
+  Motor1_Forward(900);
+  Motor2_Forward(900);
+  Motor3_Backward(900);
+  Motor4_Backward(900);
+/*   angle *= 1000;
+  while (angle--);
+  Motor1_Break();
+  Motor2_Break();
+  Motor3_Break();
+  Motor4_Break(); */
+}
+
+void Car_Forward(int speed){
+  Motor1_Forward(speed);
+  Motor2_Forward(speed);
+  Motor3_Forward(speed);
+  Motor4_Forward(speed);
+}
+
+void Car_Backward(int speed){
+  Motor1_Backward(speed);
+  Motor2_Backward(speed);
+  Motor3_Backward(speed);
+  Motor4_Backward(speed);
+}
